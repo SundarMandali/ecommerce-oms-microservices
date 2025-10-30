@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "bb576d4a-582a-46cd-877f-6a966322e08b",
+		"name": "E-Commerce OMS Microservices",
+		"description": "This collection contains all APIs for Order Management System — includes Order Service and Inventory Service deployed on AWS Elastic Beanstalk.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39065102"
+	},
+	"item": [
+		{
+			"name": "Inventory Service",
+			"item": [
+				{
+					"name": "Increase the stock of a Product(PUT)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://{{inventory_base_ip}}/api/inventory/2/add-stock?quantity=4",
+							"protocol": "http",
+							"host": [
+								"{{inventory_base_ip}}"
+							],
+							"path": [
+								"api",
+								"inventory",
+								"2",
+								"add-stock"
+							],
+							"query": [
+								{
+									"key": "quantity",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product by Id(GET)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{inventory_base_ip}}/api/inventory/2",
+							"protocol": "http",
+							"host": [
+								"{{inventory_base_ip}}"
+							],
+							"path": [
+								"api",
+								"inventory",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Product (POST)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productName\": \"Books\",\r\n    \"stockQuantity\": 75,\r\n    \"price\": 25\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{inventory_base_ip}}/api/inventory",
+							"protocol": "http",
+							"host": [
+								"{{inventory_base_ip}}"
+							],
+							"path": [
+								"api",
+								"inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products (GET)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{inventory_base_ip}}/api/inventory",
+							"protocol": "http",
+							"host": [
+								"{{inventory_base_ip}}"
+							],
+							"path": [
+								"api",
+								"inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reduce the stock of a Product(PUT)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://{{inventory_base_ip}}/api/inventory/2/reduce?quantity=1",
+							"protocol": "http",
+							"host": [
+								"{{inventory_base_ip}}"
+							],
+							"path": [
+								"api",
+								"inventory",
+								"2",
+								"reduce"
+							],
+							"query": [
+								{
+									"key": "quantity",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order Service",
+			"item": [
+				{
+					"name": "Place Order (POST)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": 1,\r\n  \"items\": [\r\n    {\r\n      \"productId\": 2,\r\n      \"quantity\": 1,\r\n      \"pricePerUnit\": 15\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{order_base_ip}}/api/orders",
+							"protocol": "http",
+							"host": [
+								"{{order_base_ip}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order by ID (GET)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{order_base_ip}}/api/orders/1",
+							"protocol": "http",
+							"host": [
+								"{{order_base_ip}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order Status (PUT)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{order_base_ip}}/api/orders/1/status?status=SHIPPED",
+							"protocol": "http",
+							"host": [
+								"{{order_base_ip}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"1",
+								"status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "SHIPPED"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
