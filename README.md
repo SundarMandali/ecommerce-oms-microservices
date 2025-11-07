@@ -58,11 +58,6 @@ Refer `/docs/DDL_Scripts.sql` for SQL DDL scripts.
 
 Each microservice is deployed on AWS Elastic Beanstalk and connected to separate MySQL RDS instances.
 
-| Service | Environment URL |
-|----------|----------------|
-| Inventory Service | http://65.0.244.55 |
-| Order Service | http://13.200.70.246 |
-
 ---
 
 ## 📬 Postman Testing
